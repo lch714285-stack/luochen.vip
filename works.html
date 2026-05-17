@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>作品集｜Luochen</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="logo">Luochen</a>
+    <nav>
+      <a href="index.html">首页</a>
+      <a href="works.html">作品集</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-title">
+      <h1>作品集</h1>
+      <p>摄影作品、信息可视化设计、小红书图文与纪录片项目整理。</p>
+    </section>
+
+    <section class="filter-bar">
+      <button class="filter-btn active" data-category="all">全部</button>
+      <button class="filter-btn" data-category="photography">摄影作品</button>
+      <button class="filter-btn" data-category="visualization">可视化设计</button>
+      <button class="filter-btn" data-category="xiaohongshu">小红书图文</button>
+      <button class="filter-btn" data-category="documentary">纪录片项目</button>
+      <button class="filter-btn" data-category="course">课程作业</button>
+    </section>
+
+    <section id="works-grid" class="works-grid"></section>
+  </main>
+
+  <script src="works.js"></script>
+</body>
+</html>
