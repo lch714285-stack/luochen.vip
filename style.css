@@ -23,10 +23,6 @@ body {
   color: var(--ink);
 }
 
-body.lightbox-open {
-  overflow: hidden;
-}
-
 a {
   color: inherit;
   text-decoration: none;
@@ -408,27 +404,12 @@ h1 {
   place-items: center;
 }
 
-.work-gallery-button {
-  display: block;
-  width: 100%;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  cursor: zoom-in;
-}
-
 .work-media img {
   width: 100%;
   height: 100%;
   display: block;
   object-fit: contain;
   filter: drop-shadow(0 12px 22px rgba(57, 44, 30, 0.1));
-}
-
-.work-gallery-button:focus-visible,
-.lightbox-btn:focus-visible {
-  outline: 2px solid var(--ink);
-  outline-offset: 3px;
 }
 
 .work-action {
@@ -443,12 +424,6 @@ h1 {
   text-decoration: none;
 }
 
-.work-cover-action {
-  border: 0;
-  background: transparent;
-  text-align: left;
-}
-
 .work-action:hover {
   background: rgba(56, 42, 28, 0.05);
 }
@@ -460,7 +435,7 @@ h1 {
   padding: 0 1.2rem 1.2rem;
 }
 
-.work-gallery-button img {
+.work-gallery img {
   aspect-ratio: 1 / 1;
   width: 100%;
   object-fit: cover;
@@ -471,7 +446,7 @@ h1 {
   grid-template-columns: repeat(4, 1fr);
 }
 
-.xiaohongshu-gallery .work-gallery-button img {
+.xiaohongshu-gallery img {
   aspect-ratio: auto;
   height: auto;
 }
@@ -554,76 +529,6 @@ h1 {
   font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-
-.lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  display: grid;
-  place-items: center;
-  padding: 24px;
-  background: rgba(21, 17, 13, 0.78);
-  backdrop-filter: blur(12px);
-}
-
-.lightbox-panel {
-  width: min(1080px, 100%);
-  max-height: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 28px;
-  background: rgba(35, 28, 22, 0.88);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-}
-
-.lightbox-toolbar {
-  display: flex;
-  gap: 10px;
-  justify-content: flex-end;
-  padding: 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.lightbox-btn {
-  padding: 10px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  color: #fff;
-  font: inherit;
-  cursor: pointer;
-}
-
-.lightbox-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
-}
-
-.lightbox-btn:disabled {
-  opacity: 0.45;
-  cursor: default;
-}
-
-.lightbox-stage {
-  display: grid;
-  place-items: center;
-  padding: 28px;
-  min-height: min(72vh, 760px);
-  overflow: auto;
-}
-
-.lightbox-stage img {
-  max-width: 100%;
-  max-height: 68vh;
-  transform-origin: center center;
-  transition: transform 0.18s ease;
-}
-
-.lightbox-caption {
-  margin: 0;
-  padding: 0 28px 24px;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 14px;
 }
 
 .empty-state {
@@ -747,28 +652,6 @@ footer a {
 
   .xiaohongshu-gallery {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .lightbox {
-    padding: 14px;
-  }
-
-  .lightbox-panel {
-    border-radius: 22px;
-  }
-
-  .lightbox-toolbar {
-    flex-wrap: wrap;
-    justify-content: flex-start;
-  }
-
-  .lightbox-stage {
-    min-height: 54vh;
-    padding: 18px;
-  }
-
-  .lightbox-caption {
-    padding: 0 18px 18px;
   }
 
   .card {
