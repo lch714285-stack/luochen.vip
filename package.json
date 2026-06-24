@@ -1,0 +1,7 @@
+{
+  "name": "luochen-portfolio",
+  "private": true,
+  "scripts": {
+    "validate:works": "node scripts/validate-works.mjs"
+  }
+}

@@ -19,18 +19,13 @@
     <section class="page-title">
       <h1>作品集</h1>
       <p>摄影作品、信息可视化设计、小红书图文与纪录片项目整理。</p>
+      <p id="works-updated-at" class="works-updated-at" aria-live="polite"></p>
     </section>
 
-    <section class="filter-bar">
-      <button class="filter-btn active" data-category="all">全部</button>
-      <button class="filter-btn" data-category="photography">摄影作品</button>
-      <button class="filter-btn" data-category="visualization">可视化设计</button>
-      <button class="filter-btn" data-category="xiaohongshu">小红书图文</button>
-      <button class="filter-btn" data-category="documentary">纪录片项目</button>
-      <button class="filter-btn" data-category="course">课程作业</button>
-    </section>
+    <section id="filter-bar" class="filter-bar" aria-label="作品分类"></section>
 
-    <section id="works-grid" class="works-grid"></section>
+    <section id="works-grid" class="works-grid" aria-live="polite"></section>
+    <p id="works-status" class="works-status" role="status"></p>
   </main>
 
   <script src="works.js"></script>

@@ -1,71 +1,114 @@
-const works = [
-  {
-    title: "城市街头摄影",
-    category: "photography",
-    categoryName: "摄影作品",
-    year: "2026",
-    image: "assets/images/photography/photo-2026-001.webp",
-    description: "一组关于城市街头、人物关系与日常空间的摄影作品。"
-  },
-  {
-    title: "名创优品出海路径可视化",
-    category: "visualization",
-    categoryName: "可视化设计",
-    year: "2026",
-    image: "assets/images/visualization/viz-2026-miniso-001.webp",
-    description: "围绕名创优品全球化路径制作的信息可视化作品。"
-  },
-  {
-    title: "大学生证书时间表",
-    category: "xiaohongshu",
-    categoryName: "小红书图文",
-    year: "2026",
-    image: "assets/images/xiaohongshu/xhs-2026-certificate-001.webp",
-    description: "面向大学生群体的证书报名与考试时间整理图文。"
-  },
-  {
-    title: "纪录片《极致玩家》",
-    category: "documentary",
-    categoryName: "纪录片项目",
-    year: "2026",
-    image: "assets/images/documentary/doc-2026-player-001.webp",
-    description: "关于狼人杀玩家、桌游空间与兴趣社群的纪录片项目。"
-  }
-];
-
 const grid = document.getElementById("works-grid");
-const buttons = document.querySelectorAll(".filter-btn");
+const filterBar = document.getElementById("filter-bar");
+const status = document.getElementById("works-status");
+const updatedAt = document.getElementById("works-updated-at");
+let works = [];
+let activeCategory = "all";
 
-function renderWorks(category = "all") {
+function createElement(tagName, className, text) {
+  const element = document.createElement(tagName);
+  if (className) element.className = className;
+  if (text) element.textContent = text;
+  return element;
+}
+
+function renderUpdatedAt(value) {
+  if (!value) return;
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return;
+
+  updatedAt.textContent = `最后更新：${new Intl.DateTimeFormat("zh-CN", {
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  }).format(date)}`;
+}
+
+function renderFilters() {
+  filterBar.replaceChildren();
+  const categories = new Map();
+  works.forEach((work) => categories.set(work.category, work.categoryName));
+
+  const options = [["all", "全部"], ...categories];
+  options.forEach(([category, name]) => {
+    const button = createElement("button", "filter-btn", name);
+    button.type = "button";
+    button.dataset.category = category;
+    button.classList.toggle("active", category === activeCategory);
+    button.addEventListener("click", () => {
+      activeCategory = category;
+      renderFilters();
+      renderWorks();
+    });
+    filterBar.append(button);
+  });
+}
+
+function renderWorks() {
   grid.innerHTML = "";
 
-  const filteredWorks = category === "all"
+  const filteredWorks = activeCategory === "all"
     ? works
-    : works.filter(work => work.category === category);
+    : works.filter((work) => work.category === activeCategory);
 
-  filteredWorks.forEach(work => {
-    const card = document.createElement("article");
+  if (filteredWorks.length === 0) {
+    grid.append(createElement("p", "empty-state", "这个分类暂时没有公开作品。"));
+    return;
+  }
+
+  filteredWorks.forEach((work) => {
+    const card = work.url ? document.createElement("a") : document.createElement("article");
     card.className = "work-card";
+    if (work.url) {
+      card.href = work.url;
+      card.target = "_blank";
+      card.rel = "noreferrer";
+    }
 
-    card.innerHTML = `
-      <img src="${work.image}" alt="${work.title}" loading="lazy">
-      <div class="work-info">
-        <span>${work.categoryName} · ${work.year}</span>
-        <h2>${work.title}</h2>
-        <p>${work.description}</p>
-      </div>
-    `;
+    const media = createElement("div", "work-media");
+    if (work.image) {
+      const image = document.createElement("img");
+      image.src = work.image;
+      image.alt = work.title;
+      image.loading = "lazy";
+      image.addEventListener("error", () => {
+        image.remove();
+        media.classList.add("is-placeholder");
+        media.textContent = "作品预览待上传";
+      }, { once: true });
+      media.append(image);
+    } else {
+      media.classList.add("is-placeholder");
+      media.textContent = "作品预览待上传";
+    }
+
+    const info = createElement("div", "work-info");
+    info.append(
+      createElement("span", "work-meta", `${work.categoryName} · ${work.year}`),
+      createElement("h2", "", work.title),
+      createElement("p", "", work.description)
+    );
+    card.append(media, info);
 
     grid.appendChild(card);
   });
 }
 
-buttons.forEach(button => {
-  button.addEventListener("click", () => {
-    buttons.forEach(btn => btn.classList.remove("active"));
-    button.classList.add("active");
-    renderWorks(button.dataset.category);
-  });
-});
+async function loadWorks() {
+  try {
+    const response = await fetch("data/works.json", { cache: "no-store" });
+    if (!response.ok) throw new Error("作品数据无法读取");
 
-renderWorks();
+    const data = await response.json();
+    works = (data.works || [])
+      .filter((work) => work.published !== false)
+      .sort((a, b) => (b.publishedAt || "").localeCompare(a.publishedAt || ""));
+    renderUpdatedAt(data.updatedAt);
+    renderFilters();
+    renderWorks();
+  } catch (error) {
+    status.textContent = "作品数据暂时无法加载，请稍后重试。";
+  }
+}
+
+loadWorks();

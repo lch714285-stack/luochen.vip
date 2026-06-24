@@ -1,0 +1,49 @@
+{
+  "updatedAt": "2026-06-25T00:00:00+08:00",
+  "works": [
+    {
+      "id": "photo-2026-001",
+      "title": "城市街头摄影",
+      "category": "photography",
+      "categoryName": "摄影作品",
+      "year": "2026",
+      "image": "assets/images/photography/photo-2026-001.webp",
+      "description": "一组关于城市街头、人物关系与日常空间的摄影作品。",
+      "published": true,
+      "publishedAt": "2026-05-17"
+    },
+    {
+      "id": "viz-2026-miniso-001",
+      "title": "名创优品出海路径可视化",
+      "category": "visualization",
+      "categoryName": "可视化设计",
+      "year": "2026",
+      "image": "assets/images/visualization/viz-2026-miniso-001.webp",
+      "description": "围绕名创优品全球化路径制作的信息可视化作品。",
+      "published": true,
+      "publishedAt": "2026-05-17"
+    },
+    {
+      "id": "xhs-2026-certificate-001",
+      "title": "大学生证书时间表",
+      "category": "xiaohongshu",
+      "categoryName": "小红书图文",
+      "year": "2026",
+      "image": "assets/images/xiaohongshu/xhs-2026-certificate-001.webp",
+      "description": "面向大学生群体的证书报名与考试时间整理图文。",
+      "published": true,
+      "publishedAt": "2026-05-17"
+    },
+    {
+      "id": "doc-2026-player-001",
+      "title": "纪录片《极致玩家》",
+      "category": "documentary",
+      "categoryName": "纪录片项目",
+      "year": "2026",
+      "image": "assets/images/documentary/doc-2026-player-001.webp",
+      "description": "关于狼人杀玩家、桌游空间与兴趣社群的纪录片项目。",
+      "published": true,
+      "publishedAt": "2026-05-17"
+    }
+  ]
+}
