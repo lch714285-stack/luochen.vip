@@ -90,6 +90,18 @@ function renderWorks() {
     );
     card.append(media, info);
 
+    if (Array.isArray(work.gallery) && work.gallery.length > 0) {
+      const gallery = createElement("div", "work-gallery");
+      work.gallery.forEach((source, index) => {
+        const image = document.createElement("img");
+        image.src = source;
+        image.alt = `${work.title} ${index + 1}`;
+        image.loading = "lazy";
+        gallery.append(image);
+      });
+      card.append(gallery);
+    }
+
     grid.appendChild(card);
   });
 }

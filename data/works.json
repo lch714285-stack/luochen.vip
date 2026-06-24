@@ -1,6 +1,102 @@
 {
-  "updatedAt": "2026-06-25T01:20:00+08:00",
+  "updatedAt": "2026-06-25T02:10:00+08:00",
   "works": [
+    {
+      "id": "ppt-2026-creative-reflection",
+      "title": "《极致玩家》纪录片创作心得",
+      "category": "presentation",
+      "categoryName": "课程汇报",
+      "year": "2026",
+      "image": "assets/images/presentations/creative-reflection-2026.jpg",
+      "url": "assets/downloads/presentations/creative-reflection-2026.ppt",
+      "description": "围绕纪录片《极致玩家》的策划、拍摄与创作思路整理。",
+      "published": true,
+      "publishedAt": "2026-06-25"
+    },
+    {
+      "id": "ppt-2026-xiaohongshu-final",
+      "title": "小猫同学账号运营小结",
+      "category": "presentation",
+      "categoryName": "课程汇报",
+      "year": "2026",
+      "image": "assets/images/presentations/xiaohongshu-final-2026.jpg",
+      "url": "assets/downloads/presentations/xiaohongshu-final-2026.ppt",
+      "description": "从内容冷启动到垂直化运营验证的小红书账号阶段性复盘。",
+      "published": true,
+      "publishedAt": "2026-06-25"
+    },
+    {
+      "id": "ppt-2026-xiaohongshu-midterm",
+      "title": "小红书运营账号期中汇报",
+      "category": "presentation",
+      "categoryName": "课程汇报",
+      "year": "2026",
+      "image": "assets/images/presentations/xiaohongshu-midterm-2026.jpg",
+      "url": "assets/downloads/presentations/xiaohongshu-midterm-2026.pptx",
+      "description": "围绕大学生学习效率工具号的选题、发布与数据复盘。",
+      "published": true,
+      "publishedAt": "2026-06-25"
+    },
+    {
+      "id": "ppt-2026-personal-class-report",
+      "title": "人民币对美元汇率分析",
+      "category": "presentation",
+      "categoryName": "课程汇报",
+      "year": "2026",
+      "image": "assets/images/presentations/personal-class-report-2026.jpg",
+      "url": "assets/downloads/presentations/personal-class-report-2026.ppt",
+      "description": "关于人民币对美元汇率走势与影响因素的数据分析课堂汇报。",
+      "published": true,
+      "publishedAt": "2026-06-25"
+    },
+    {
+      "id": "ppt-2026-public-relations",
+      "title": "欧莱雅青年“万有引力”计划",
+      "category": "presentation",
+      "categoryName": "课程汇报",
+      "year": "2026",
+      "image": "assets/images/presentations/public-relations-2026.jpg",
+      "url": "assets/downloads/presentations/public-relations-2026.pptx",
+      "description": "《公共关系学》课程中的品牌青年计划策划报告。",
+      "published": true,
+      "publishedAt": "2026-06-25"
+    },
+    {
+      "id": "ppt-2026-trade-investment-0413",
+      "title": "欧盟对中国电动汽车反补贴案分析",
+      "category": "presentation",
+      "categoryName": "课程汇报",
+      "year": "2026",
+      "image": "assets/images/presentations/trade-investment-2026-0413.jpg",
+      "url": "assets/downloads/presentations/trade-investment-2026-0413.pptx",
+      "description": "国际贸易与投资课程中的贸易救济案例分析。",
+      "published": true,
+      "publishedAt": "2026-06-25"
+    },
+    {
+      "id": "ppt-2026-trade-investment-0608",
+      "title": "贸易救济措施规则",
+      "category": "presentation",
+      "categoryName": "课程汇报",
+      "year": "2026",
+      "image": "assets/images/presentations/trade-investment-2026-0608.jpg",
+      "url": "assets/downloads/presentations/trade-investment-2026-0608.ppt",
+      "description": "国际贸易与投资课程中的贸易救济措施规则汇报。",
+      "published": true,
+      "publishedAt": "2026-06-25"
+    },
+    {
+      "id": "ppt-2026-trade-investment-0614",
+      "title": "巴斯夫湛江一体化基地国际投资逻辑分析",
+      "category": "presentation",
+      "categoryName": "课程汇报",
+      "year": "2026",
+      "image": "assets/images/presentations/trade-investment-2026-0614.jpg",
+      "url": "assets/downloads/presentations/trade-investment-2026-0614.pptx",
+      "description": "以巴斯夫湛江一体化基地为案例的国际投资课程汇报。",
+      "published": true,
+      "publishedAt": "2026-06-25"
+    },
     {
       "id": "photo-2026-sports-001",
       "title": "着意体育：业余足球纪实",
@@ -8,20 +104,22 @@
       "categoryName": "摄影作品",
       "year": "2026",
       "image": "assets/images/photography/photo-2026-sports-001.jpg",
+      "gallery": [
+        "assets/images/photography/sports-2026/着意体育_摄影照片_26.05.30_01.jpg",
+        "assets/images/photography/sports-2026/着意体育_摄影照片_26.05.30_02.jpg",
+        "assets/images/photography/sports-2026/着意体育_摄影照片_26.05.30_03.jpg",
+        "assets/images/photography/sports-2026/着意体育_摄影照片_26.05.30_04.jpg",
+        "assets/images/photography/sports-2026/着意体育_摄影照片_26.05.30_05.jpg",
+        "assets/images/photography/sports-2026/着意体育_摄影照片_26.05.30_06.jpg",
+        "assets/images/photography/sports-2026/着意体育_摄影照片_26.05.30_07.jpg",
+        "assets/images/photography/sports-2026/着意体育_摄影照片_26.05.30_08.jpg",
+        "assets/images/photography/sports-2026/着意体育_摄影照片_26.05.30_09.jpg",
+        "assets/images/photography/sports-2026/着意体育_摄影照片_26.05.30_10.jpg",
+        "assets/images/photography/sports-2026/着意体育_摄影照片_26.05.30_11.jpg"
+      ],
       "description": "拍摄于上海业余足球赛场的一组现场纪实摄影，记录对抗、节奏与团队瞬间。",
       "published": true,
       "publishedAt": "2026-06-25"
-    },
-    {
-      "id": "doc-2026-player-001",
-      "title": "纪录片《极致玩家》",
-      "category": "documentary",
-      "categoryName": "纪录片项目",
-      "year": "2026",
-      "image": "assets/images/documentary/doc-2026-player-001.jpg",
-      "description": "关于狼人杀玩家、桌游空间与兴趣社群的纪录片项目。",
-      "published": true,
-      "publishedAt": "2026-05-17"
     }
   ]
 }

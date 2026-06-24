@@ -234,6 +234,20 @@ h1 {
   object-fit: cover;
 }
 
+.work-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  padding: 0 1.2rem 1.2rem;
+}
+
+.work-gallery img {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0.4rem;
+}
+
 .work-media.is-placeholder {
   display: grid;
   place-items: center;
