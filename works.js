@@ -101,7 +101,7 @@ async function loadWorks() {
 
     const data = await response.json();
     works = (data.works || [])
-      .filter((work) => work.published !== false)
+      .filter((work) => work.published === true)
       .sort((a, b) => (b.publishedAt || "").localeCompare(a.publishedAt || ""));
     renderUpdatedAt(data.updatedAt);
     renderFilters();

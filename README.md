@@ -4,7 +4,7 @@
 
 ## 发布作品
 
-作品页读取 `data/works.json`。一条记录只有在 `published` 为 `true`（或未设置）时才会在网站公开；设为 `false` 可以保留草稿，不会发布。
+作品页读取 `data/works.json`。一条记录只有在 `published` 严格为 `true` 时才会在网站公开；未设置或设为 `false` 都会保留为草稿，不会发布。
 
 1. 将封面图放在 `assets/images/<分类>/`，建议使用 WebP、JPG 或 PNG，单张控制在 2 MB 以内。
 2. 在 `data/works.json` 的 `works` 数组最前面添加作品信息。`id` 不能重复，`publishedAt` 使用 `YYYY-MM-DD`。
