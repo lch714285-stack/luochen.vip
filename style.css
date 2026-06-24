@@ -469,6 +469,11 @@ h1 {
   background: rgba(255, 255, 255, 0.12);
 }
 
+.lightbox-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
 .lightbox-stage {
   display: grid;
   place-items: center;
@@ -482,6 +487,13 @@ h1 {
   max-height: 68vh;
   transform-origin: center center;
   transition: transform 0.18s ease;
+}
+
+.lightbox-caption {
+  margin: 0;
+  padding: 0 28px 24px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
 }
 
 .empty-state {
@@ -586,6 +598,10 @@ footer a {
   .lightbox-stage {
     min-height: 54vh;
     padding: 18px;
+  }
+
+  .lightbox-caption {
+    padding: 0 18px 18px;
   }
 
   .card {

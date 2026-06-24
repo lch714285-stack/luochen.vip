@@ -6,6 +6,8 @@ const lightbox = createLightbox();
 let works = [];
 let activeCategory = "all";
 let lightboxScale = 1;
+let lightboxItems = [];
+let lightboxIndex = 0;
 
 function createElement(tagName, className, text) {
   const element = document.createElement(tagName);
@@ -18,18 +20,19 @@ function getFileName(source) {
   return source.split("/").pop() || "portfolio-image.jpg";
 }
 
-function createImageButton(source, alt, className) {
+function createImageButton(source, alt, className, items, index) {
   const button = document.createElement("button");
   button.type = "button";
   button.className = className;
   button.dataset.source = source;
   button.dataset.alt = alt;
   button.dataset.filename = getFileName(source);
+  button.dataset.index = String(index);
   button.setAttribute("aria-label", `查看大图：${alt}`);
   button.addEventListener("click", (event) => {
     event.preventDefault();
     event.stopPropagation();
-    openLightbox(source, alt, button.dataset.filename);
+    openLightbox(items, index);
   });
   return button;
 }
@@ -40,13 +43,18 @@ function createLightbox() {
 
   const panel = createElement("div", "lightbox-panel");
   const toolbar = createElement("div", "lightbox-toolbar");
+  const prev = createElement("button", "lightbox-btn", "上一张");
+  const next = createElement("button", "lightbox-btn", "下一张");
   const zoomOut = createElement("button", "lightbox-btn", "缩小");
   const zoomIn = createElement("button", "lightbox-btn", "放大");
   const download = createElement("a", "lightbox-btn lightbox-download", "下载图片");
   const close = createElement("button", "lightbox-btn lightbox-close", "关闭");
   const stage = createElement("div", "lightbox-stage");
   const image = document.createElement("img");
+  const caption = createElement("p", "lightbox-caption");
 
+  prev.type = "button";
+  next.type = "button";
   zoomOut.type = "button";
   zoomIn.type = "button";
   close.type = "button";
@@ -55,8 +63,8 @@ function createLightbox() {
   image.alt = "";
 
   stage.append(image);
-  toolbar.append(zoomOut, zoomIn, download, close);
-  panel.append(toolbar, stage);
+  toolbar.append(prev, next, zoomOut, zoomIn, download, close);
+  panel.append(toolbar, stage, caption);
   overlay.append(panel);
   document.body.append(overlay);
 
@@ -65,17 +73,21 @@ function createLightbox() {
   });
 
   close.addEventListener("click", closeLightbox);
+  prev.addEventListener("click", () => showLightboxItem(lightboxIndex - 1));
+  next.addEventListener("click", () => showLightboxItem(lightboxIndex + 1));
   zoomIn.addEventListener("click", () => setLightboxScale(lightboxScale + 0.25));
   zoomOut.addEventListener("click", () => setLightboxScale(lightboxScale - 0.25));
 
   document.addEventListener("keydown", (event) => {
     if (overlay.hidden) return;
     if (event.key === "Escape") closeLightbox();
+    if (event.key === "ArrowLeft") showLightboxItem(lightboxIndex - 1);
+    if (event.key === "ArrowRight") showLightboxItem(lightboxIndex + 1);
     if (event.key === "+") setLightboxScale(lightboxScale + 0.25);
     if (event.key === "-") setLightboxScale(lightboxScale - 0.25);
   });
 
-  return { overlay, image, download };
+  return { overlay, image, download, caption, prev, next };
 }
 
 function setLightboxScale(value) {
@@ -83,14 +95,25 @@ function setLightboxScale(value) {
   lightbox.image.style.transform = `scale(${lightboxScale})`;
 }
 
-function openLightbox(source, alt, fileName) {
+function showLightboxItem(index) {
+  if (!lightboxItems.length) return;
+  lightboxIndex = (index + lightboxItems.length) % lightboxItems.length;
+  const item = lightboxItems[lightboxIndex];
+  lightbox.image.src = item.source;
+  lightbox.image.alt = item.alt;
+  lightbox.download.href = item.source;
+  lightbox.download.download = item.fileName;
+  lightbox.caption.textContent = `${item.alt} · ${lightboxIndex + 1} / ${lightboxItems.length}`;
+  lightbox.prev.disabled = lightboxItems.length === 1;
+  lightbox.next.disabled = lightboxItems.length === 1;
+  setLightboxScale(1);
+}
+
+function openLightbox(items, index) {
+  lightboxItems = items;
   lightbox.overlay.hidden = false;
   lightbox.overlay.classList.add("is-visible");
-  lightbox.image.src = source;
-  lightbox.image.alt = alt;
-  lightbox.download.href = source;
-  lightbox.download.download = fileName;
-  setLightboxScale(1);
+  showLightboxItem(index);
   document.body.classList.add("lightbox-open");
 }
 
@@ -98,6 +121,9 @@ function closeLightbox() {
   lightbox.overlay.hidden = true;
   lightbox.overlay.classList.remove("is-visible");
   lightbox.image.removeAttribute("src");
+  lightbox.caption.textContent = "";
+  lightboxItems = [];
+  lightboxIndex = 0;
   document.body.classList.remove("lightbox-open");
 }
 
@@ -151,10 +177,19 @@ function renderWorks() {
   filteredWorks.forEach((work, index) => {
     const card = document.createElement("article");
     card.className = "work-card";
+    const imageItems = [];
+
+    if (work.image) {
+      imageItems.push({
+        source: work.image,
+        alt: work.title,
+        fileName: getFileName(work.image)
+      });
+    }
 
     const media = createElement("div", "work-media");
     if (work.image) {
-      const mediaButton = createImageButton(work.image, work.title, "work-media-button");
+      const mediaButton = createImageButton(work.image, work.title, "work-media-button", imageItems, 0);
       const image = document.createElement("img");
       image.src = work.image;
       image.alt = work.title;
@@ -201,11 +236,17 @@ function renderWorks() {
       const gallerySummary = createElement("p", "work-section-label", `图集（${work.gallery.length} 张）`);
       const gallery = createElement("div", "work-gallery");
       gallery.classList.add(`${work.category}-gallery`);
-      work.gallery.forEach((source, index) => {
-        const button = createImageButton(source, `${work.title} ${index + 1}`, "work-gallery-button");
+      work.gallery.forEach((source, galleryIndex) => {
+        const item = {
+          source,
+          alt: `${work.title} ${galleryIndex + 1}`,
+          fileName: getFileName(source)
+        };
+        imageItems.push(item);
+        const button = createImageButton(source, item.alt, "work-gallery-button", imageItems, imageItems.length - 1);
         const image = document.createElement("img");
         image.src = source;
-        image.alt = `${work.title} ${index + 1}`;
+        image.alt = item.alt;
         image.loading = "lazy";
         button.append(image);
         gallery.append(button);
