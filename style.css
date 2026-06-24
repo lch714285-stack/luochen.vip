@@ -248,6 +248,15 @@ h1 {
   border-radius: 0.4rem;
 }
 
+.xiaohongshu-gallery {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.xiaohongshu-gallery img {
+  aspect-ratio: auto;
+  height: auto;
+}
+
 .work-media.is-placeholder {
   display: grid;
   place-items: center;
@@ -327,6 +336,10 @@ footer a {
 
   .works-grid {
     grid-template-columns: 1fr;
+  }
+
+  .xiaohongshu-gallery {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .card {

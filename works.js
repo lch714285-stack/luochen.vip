@@ -92,6 +92,7 @@ function renderWorks() {
 
     if (Array.isArray(work.gallery) && work.gallery.length > 0) {
       const gallery = createElement("div", "work-gallery");
+      gallery.classList.add(`${work.category}-gallery`);
       work.gallery.forEach((source, index) => {
         const image = document.createElement("img");
         image.src = source;
