@@ -8,6 +8,7 @@ let activeCategory = "all";
 let lightboxScale = 1;
 let lightboxItems = [];
 let lightboxIndex = 0;
+const interactionReadyAt = Date.now() + 500;
 
 function createElement(tagName, className, text) {
   const element = document.createElement(tagName);
@@ -32,6 +33,7 @@ function createImageButton(source, alt, className, items, index) {
   button.addEventListener("click", (event) => {
     event.preventDefault();
     event.stopPropagation();
+    if (Date.now() < interactionReadyAt) return;
     openLightbox(items, index);
   });
   return button;
@@ -110,10 +112,13 @@ function showLightboxItem(index) {
 }
 
 function openLightbox(items, index) {
+  if (!Array.isArray(items) || items.length === 0) return;
+  if (!items[index]) return;
   lightboxItems = items;
+  showLightboxItem(index);
+  if (!lightbox.image.getAttribute("src")) return;
   lightbox.overlay.hidden = false;
   lightbox.overlay.classList.add("is-visible");
-  showLightboxItem(index);
   document.body.classList.add("lightbox-open");
 }
 
