@@ -57,13 +57,8 @@ function renderWorks() {
   }
 
   filteredWorks.forEach((work) => {
-    const card = work.url ? document.createElement("a") : document.createElement("article");
+    const card = document.createElement("article");
     card.className = "work-card";
-    if (work.url) {
-      card.href = work.url;
-      card.target = "_blank";
-      card.rel = "noreferrer";
-    }
 
     const media = createElement("div", "work-media");
     if (work.image) {
@@ -91,6 +86,8 @@ function renderWorks() {
     card.append(media, info);
 
     if (Array.isArray(work.gallery) && work.gallery.length > 0) {
+      const details = createElement("details", "work-details");
+      const summary = createElement("summary", "work-action", `展开图集（${work.gallery.length} 张）`);
       const gallery = createElement("div", "work-gallery");
       gallery.classList.add(`${work.category}-gallery`);
       work.gallery.forEach((source, index) => {
@@ -100,7 +97,14 @@ function renderWorks() {
         image.loading = "lazy";
         gallery.append(image);
       });
-      card.append(gallery);
+      details.append(summary, gallery);
+      card.append(details);
+    } else if (work.url) {
+      const download = createElement("a", "work-action", "下载 PPT");
+      download.href = work.url;
+      download.target = "_blank";
+      download.rel = "noreferrer";
+      card.append(download);
     }
 
     grid.appendChild(card);

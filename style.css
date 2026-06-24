@@ -211,6 +211,8 @@ h1 {
 
 .work-card {
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.75);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
@@ -223,15 +225,45 @@ h1 {
 }
 
 .work-media {
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 4 / 3;
   background: #e9e5da;
+  display: grid;
+  place-items: center;
 }
 
 .work-media img {
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
+}
+
+.work-details {
+  margin-top: auto;
+}
+
+.work-action {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 14px 20px;
+  border-top: 1px solid rgba(31, 31, 31, 0.1);
+  color: #1f1f1f;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.work-action:hover {
+  background: rgba(31, 31, 31, 0.04);
+}
+
+.work-details[open] > .work-action {
+  border-bottom: 1px solid rgba(31, 31, 31, 0.1);
+}
+
+.work-details summary::marker {
+  color: #777;
 }
 
 .work-gallery {
@@ -267,7 +299,8 @@ h1 {
 }
 
 .work-info {
-  padding: 20px;
+  min-height: 142px;
+  padding: 18px 20px;
 }
 
 .work-meta {
@@ -276,8 +309,9 @@ h1 {
 }
 
 .work-info h2 {
-  margin: 34px 0 10px;
-  font-size: 22px;
+  min-height: 52px;
+  margin: 8px 0;
+  font-size: 21px;
 }
 
 .work-info p,
@@ -286,6 +320,14 @@ h1 {
   margin: 0;
   color: #666;
   line-height: 1.7;
+}
+
+.work-info p {
+  min-height: 54px;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .empty-state {
