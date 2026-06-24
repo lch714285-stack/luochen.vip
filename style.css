@@ -2,11 +2,25 @@
   box-sizing: border-box;
 }
 
+:root {
+  --paper: #f4efe4;
+  --paper-deep: #e8dcc2;
+  --ink: #1f1a17;
+  --muted: #72675d;
+  --line: rgba(54, 40, 28, 0.12);
+  --card: rgba(255, 250, 242, 0.78);
+  --shadow: 0 18px 60px rgba(48, 33, 18, 0.08);
+  --shadow-strong: 0 24px 80px rgba(48, 33, 18, 0.12);
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif;
-  background: #f7f5ef;
-  color: #1f1f1f;
+  font-family: "Avenir Next", "PingFang SC", "Hiragino Sans GB", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.72), transparent 28%),
+    radial-gradient(circle at top right, rgba(214, 185, 138, 0.22), transparent 26%),
+    linear-gradient(180deg, var(--paper) 0%, #f9f4ea 40%, #f3ecde 100%);
+  color: var(--ink);
 }
 
 a {
@@ -32,11 +46,11 @@ a {
 nav a {
   margin-left: 24px;
   font-size: 14px;
-  color: #666;
+  color: var(--muted);
 }
 
 nav a:hover {
-  color: #111;
+  color: var(--ink);
 }
 
 main {
@@ -57,7 +71,7 @@ main {
   font-size: 14px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #888;
+  color: #8a7c70;
 }
 
 h1 {
@@ -72,7 +86,7 @@ h1 {
   margin: 28px 0 0;
   font-size: 22px;
   line-height: 1.7;
-  color: #555;
+  color: var(--muted);
 }
 
 .actions {
@@ -85,18 +99,18 @@ h1 {
 .primary-btn {
   padding: 13px 22px;
   border-radius: 999px;
-  background: #1f1f1f;
+  background: var(--ink);
   color: white;
   font-size: 15px;
 }
 
 .primary-btn:hover {
-  background: #444;
+  background: #3e332c;
 }
 
 .text-btn {
   font-size: 15px;
-  color: #555;
+  color: var(--muted);
 }
 
 .section {
@@ -116,7 +130,7 @@ h1 {
 .section-title p,
 .about p {
   margin: 0;
-  color: #666;
+  color: var(--muted);
   line-height: 1.8;
 }
 
@@ -130,18 +144,19 @@ h1 {
   min-height: 220px;
   padding: 24px;
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.75);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+  background: var(--card);
+  box-shadow: var(--shadow);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  backdrop-filter: blur(18px);
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.09);
+  box-shadow: var(--shadow-strong);
 }
 
 .card span {
-  color: #999;
+  color: #8f8378;
   font-size: 14px;
 }
 
@@ -152,7 +167,7 @@ h1 {
 
 .card p {
   margin: 0;
-  color: #666;
+  color: var(--muted);
   line-height: 1.7;
 }
 
@@ -162,7 +177,15 @@ h1 {
 }
 
 .page-title {
-  margin: 40px 0;
+  margin: 20px 0 32px;
+  padding: 28px 30px 32px;
+  border: 1px solid rgba(86, 66, 44, 0.08);
+  border-radius: 32px;
+  background:
+    linear-gradient(135deg, rgba(255, 251, 245, 0.84), rgba(233, 221, 203, 0.58)),
+    rgba(255, 255, 255, 0.5);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
 }
 
 .page-title h1 {
@@ -171,13 +194,13 @@ h1 {
 
 .page-title p {
   margin: 18px 0 0;
-  color: #666;
+  color: var(--muted);
   line-height: 1.8;
 }
 
 .works-updated-at {
   font-size: 14px;
-  color: #888;
+  color: #8a7c70;
 }
 
 .filter-bar {
@@ -188,45 +211,66 @@ h1 {
 }
 
 .filter-btn {
-  border: 1px solid #dedbd2;
+  border: 1px solid rgba(84, 63, 44, 0.14);
   border-radius: 999px;
-  background: transparent;
-  padding: 8px 13px;
-  color: #555;
+  background: rgba(255, 251, 245, 0.7);
+  padding: 9px 14px;
+  color: var(--muted);
   cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .filter-btn:hover,
 .filter-btn.active {
-  border-color: #1f1f1f;
-  background: #1f1f1f;
+  border-color: var(--ink);
+  background: var(--ink);
   color: #fff;
+  transform: translateY(-1px);
 }
 
 .works-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
+  align-items: start;
 }
 
 .work-card {
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.75);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(84, 63, 44, 0.09);
+  border-radius: 28px;
+  background: var(--card);
+  box-shadow: var(--shadow);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  backdrop-filter: blur(18px);
 }
 
-.work-card:hover {
+.work-card:hover,
+.work-card[open] {
   transform: translateY(-4px);
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.09);
+  box-shadow: var(--shadow-strong);
+}
+
+.work-card summary {
+  list-style: none;
+}
+
+.work-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.work-summary {
+  display: block;
+  cursor: pointer;
 }
 
 .work-media {
-  aspect-ratio: 4 / 3;
-  background: #e9e5da;
+  width: 100%;
+  height: 360px;
+  padding: 20px;
+  background:
+    linear-gradient(180deg, rgba(244, 235, 219, 0.95), rgba(233, 223, 203, 0.7)),
+    #ede3cf;
   display: grid;
   place-items: center;
 }
@@ -236,10 +280,7 @@ h1 {
   height: 100%;
   display: block;
   object-fit: contain;
-}
-
-.work-details {
-  margin-top: auto;
+  filter: drop-shadow(0 12px 22px rgba(57, 44, 30, 0.1));
 }
 
 .work-action {
@@ -247,23 +288,15 @@ h1 {
   box-sizing: border-box;
   width: 100%;
   padding: 14px 20px;
-  border-top: 1px solid rgba(31, 31, 31, 0.1);
-  color: #1f1f1f;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
 }
 
 .work-action:hover {
-  background: rgba(31, 31, 31, 0.04);
-}
-
-.work-details[open] > .work-action {
-  border-bottom: 1px solid rgba(31, 31, 31, 0.1);
-}
-
-.work-details summary::marker {
-  color: #777;
+  background: rgba(56, 42, 28, 0.05);
 }
 
 .work-gallery {
@@ -277,7 +310,7 @@ h1 {
   aspect-ratio: 1 / 1;
   width: 100%;
   object-fit: cover;
-  border-radius: 0.4rem;
+  border-radius: 14px;
 }
 
 .xiaohongshu-gallery {
@@ -293,41 +326,80 @@ h1 {
   display: grid;
   place-items: center;
   padding: 20px;
-  color: #777;
+  color: #7d7268;
   font-size: 14px;
-  background: linear-gradient(135deg, #e9e5da, #d8d2c4);
+  background: linear-gradient(135deg, #efe5d5, #ddd0bb);
 }
 
 .work-info {
-  min-height: 142px;
-  padding: 18px 20px;
+  min-height: 148px;
+  padding: 20px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .work-meta {
-  color: #999;
-  font-size: 14px;
+  color: #8f8378;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .work-info h2 {
-  min-height: 52px;
-  margin: 8px 0;
-  font-size: 21px;
+  min-height: 58px;
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.2;
 }
 
-.work-info p,
+.work-description,
 .empty-state,
 .works-status {
   margin: 0;
-  color: #666;
+  color: var(--muted);
   line-height: 1.7;
 }
 
-.work-info p {
-  min-height: 54px;
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+.work-indicator {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(61, 44, 29, 0.08);
+  color: #5b4c40;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.work-card[open] .work-indicator {
+  background: rgba(31, 26, 23, 0.9);
+  color: #fff;
+}
+
+.work-body {
+  display: none;
+  border-top: 1px solid var(--line);
+  padding: 18px 0 0;
+}
+
+.work-card[open] .work-body {
+  display: block;
+}
+
+.work-description {
+  padding: 0 20px 18px;
+}
+
+.work-section-label {
+  margin: 0;
+  padding: 0 20px 12px;
+  color: #8f8378;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .empty-state {
@@ -343,12 +415,12 @@ footer {
   max-width: 1080px;
   margin: 0 auto;
   padding: 32px 24px;
-  color: #888;
+  color: #8a7c70;
   font-size: 14px;
 }
 
 footer a {
-  color: #555;
+  color: #5f5348;
 }
 
 @media (max-width: 760px) {
@@ -378,6 +450,34 @@ footer a {
 
   .works-grid {
     grid-template-columns: 1fr;
+  }
+
+  .page-title {
+    padding: 24px 22px 28px;
+    border-radius: 24px;
+  }
+
+  .work-card {
+    border-radius: 24px;
+  }
+
+  .work-media {
+    height: 300px;
+    padding: 16px;
+  }
+
+  .work-info {
+    min-height: 136px;
+    padding: 18px 18px 20px;
+  }
+
+  .work-info h2 {
+    min-height: auto;
+    font-size: 22px;
+  }
+
+  .work-description {
+    padding: 0 18px 18px;
   }
 
   .xiaohongshu-gallery {

@@ -57,8 +57,11 @@ function renderWorks() {
   }
 
   filteredWorks.forEach((work) => {
-    const card = document.createElement("article");
+    const card = document.createElement("details");
     card.className = "work-card";
+
+    const summary = document.createElement("summary");
+    summary.className = "work-summary";
 
     const media = createElement("div", "work-media");
     if (work.image) {
@@ -78,16 +81,21 @@ function renderWorks() {
     }
 
     const info = createElement("div", "work-info");
+    const indicator = createElement("span", "work-indicator");
+    indicator.textContent = "展开作品";
     info.append(
       createElement("span", "work-meta", `${work.categoryName} · ${work.year}`),
       createElement("h2", "", work.title),
-      createElement("p", "", work.description)
+      indicator
     );
-    card.append(media, info);
+    summary.append(media, info);
+    card.append(summary);
+
+    const body = createElement("div", "work-body");
+    body.append(createElement("p", "work-description", work.description));
 
     if (Array.isArray(work.gallery) && work.gallery.length > 0) {
-      const details = createElement("details", "work-details");
-      const summary = createElement("summary", "work-action", `展开图集（${work.gallery.length} 张）`);
+      const gallerySummary = createElement("p", "work-section-label", `图集（${work.gallery.length} 张）`);
       const gallery = createElement("div", "work-gallery");
       gallery.classList.add(`${work.category}-gallery`);
       work.gallery.forEach((source, index) => {
@@ -97,15 +105,18 @@ function renderWorks() {
         image.loading = "lazy";
         gallery.append(image);
       });
-      details.append(summary, gallery);
-      card.append(details);
-    } else if (work.url) {
+      body.append(gallerySummary, gallery);
+    }
+
+    if (work.url) {
       const download = createElement("a", "work-action", "下载 PPT");
       download.href = work.url;
       download.target = "_blank";
       download.rel = "noreferrer";
-      card.append(download);
+      body.append(download);
     }
+
+    card.append(body);
 
     grid.appendChild(card);
   });
