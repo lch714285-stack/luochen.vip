@@ -66,9 +66,9 @@ main {
 .hero {
   min-height: 60vh;
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
-  gap: 28px;
-  align-items: center;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+  gap: 36px;
+  align-items: start;
 }
 
 .tag {
@@ -103,7 +103,7 @@ h1 {
 }
 
 .hero-copy {
-  padding: 36px 0;
+  padding: 24px 0 12px;
 }
 
 .hero-facts {
@@ -148,11 +148,13 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 18px;
+  align-items: flex-end;
 }
 
 .profile-photo-card {
-  padding: 18px;
-  border-radius: 32px;
+  width: min(100%, 320px);
+  padding: 14px;
+  border-radius: 28px;
   background:
     linear-gradient(135deg, rgba(255, 251, 245, 0.84), rgba(233, 221, 203, 0.64)),
     rgba(255, 255, 255, 0.52);
@@ -163,12 +165,13 @@ h1 {
 .profile-photo-card img {
   display: block;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: 24px;
+  border-radius: 20px;
 }
 
 .education-card {
+  width: min(100%, 360px);
   padding: 22px 24px;
 }
 
@@ -384,7 +387,6 @@ h1 {
   place-items: center;
 }
 
-.work-media-button,
 .work-gallery-button {
   display: block;
   width: 100%;
@@ -402,7 +404,6 @@ h1 {
   filter: drop-shadow(0 12px 22px rgba(57, 44, 30, 0.1));
 }
 
-.work-media-button:focus-visible,
 .work-gallery-button:focus-visible,
 .lightbox-btn:focus-visible {
   outline: 2px solid var(--ink);
@@ -419,6 +420,12 @@ h1 {
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
+}
+
+.work-cover-action {
+  border: 0;
+  background: transparent;
+  text-align: left;
 }
 
 .work-action:hover {
@@ -655,12 +662,21 @@ footer a {
   }
 
   .profile-photo-card {
+    width: min(100%, 280px);
     padding: 14px;
     border-radius: 24px;
   }
 
   .profile-photo-card img {
     border-radius: 18px;
+  }
+
+  .hero-profile {
+    align-items: flex-start;
+  }
+
+  .education-card {
+    width: 100%;
   }
 
   .grid {

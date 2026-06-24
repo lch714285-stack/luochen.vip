@@ -8,7 +8,6 @@ let activeCategory = "all";
 let lightboxScale = 1;
 let lightboxItems = [];
 let lightboxIndex = 0;
-const interactionReadyAt = Date.now() + 500;
 
 function createElement(tagName, className, text) {
   const element = document.createElement(tagName);
@@ -33,7 +32,6 @@ function createImageButton(source, alt, className, items, index) {
   button.addEventListener("click", (event) => {
     event.preventDefault();
     event.stopPropagation();
-    if (Date.now() < interactionReadyAt) return;
     openLightbox(items, index);
   });
   return button;
@@ -194,19 +192,16 @@ function renderWorks() {
 
     const media = createElement("div", "work-media");
     if (work.image) {
-      const mediaButton = createImageButton(work.image, work.title, "work-media-button", imageItems, 0);
       const image = document.createElement("img");
       image.src = work.image;
       image.alt = work.title;
       image.loading = "lazy";
       image.addEventListener("error", () => {
         image.remove();
-        mediaButton.remove();
         media.classList.add("is-placeholder");
         media.textContent = "作品预览待上传";
       }, { once: true });
-      mediaButton.append(image);
-      media.append(mediaButton);
+      media.append(image);
     } else {
       media.classList.add("is-placeholder");
       media.textContent = "作品预览待上传";
@@ -236,6 +231,12 @@ function renderWorks() {
 
     const body = createElement("div", "work-body");
     body.append(createElement("p", "work-description", work.description));
+
+    if (work.image) {
+      const coverButton = createImageButton(work.image, work.title, "work-action work-cover-action", imageItems, 0);
+      coverButton.textContent = "查看封面大图";
+      body.append(coverButton);
+    }
 
     if (Array.isArray(work.gallery) && work.gallery.length > 0) {
       const gallerySummary = createElement("p", "work-section-label", `图集（${work.gallery.length} 张）`);
