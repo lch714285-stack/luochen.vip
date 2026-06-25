@@ -1,6 +1,61 @@
 {
-  "updatedAt": "2026-06-26T09:00:00+08:00",
+  "updatedAt": "2026-06-26T11:50:00+08:00",
   "works": [
+    {
+      "id": "xhs-2026-morning-brief-02",
+      "title": "小猫早八报 第二期",
+      "category": "xiaohongshu",
+      "categoryName": "小红书图文",
+      "year": "2026",
+      "image": "assets/images/xiaohongshu/posts-2026/xhs-post-50.jpg",
+      "gallery": ["assets/images/xiaohongshu/posts-2026/xhs-post-50.jpg", "assets/images/xiaohongshu/posts-2026/xhs-post-51.jpg", "assets/images/xiaohongshu/posts-2026/xhs-post-52.jpg", "assets/images/xiaohongshu/posts-2026/xhs-post-53.jpg", "assets/images/xiaohongshu/posts-2026/xhs-post-54.jpg", "assets/images/xiaohongshu/posts-2026/xhs-post-55.jpg", "assets/images/xiaohongshu/posts-2026/xhs-post-56.jpg"],
+      "description": "小猫早八报第二期图文内容，以晨间资讯栏目形式整理热点、校园与生活议题。",
+      "published": true,
+      "publishedAt": "2026-06-26"
+    },
+    {
+      "id": "photo-2025-portrait",
+      "title": "人物摄影",
+      "category": "photography",
+      "categoryName": "摄影作品",
+      "year": "2025",
+      "image": "assets/images/photography/portrait-2025/portrait-2025-01.jpg",
+      "gallery": [
+        "assets/images/photography/portrait-2025/portrait-2025-01.jpg",
+        "assets/images/photography/portrait-2025/portrait-2025-02.jpg",
+        "assets/images/photography/portrait-2025/portrait-2025-03.jpg",
+        "assets/images/photography/portrait-2025/portrait-2025-04.jpg",
+        "assets/images/photography/portrait-2025/portrait-2025-05.jpg",
+        "assets/images/photography/portrait-2025/portrait-2025-06.jpg",
+        "assets/images/photography/portrait-2025/portrait-2025-07.jpg",
+        "assets/images/photography/portrait-2025/portrait-2025-08.jpg"
+      ],
+      "description": "人物摄影练习，关注自然光线、人物状态与环境氛围之间的关系。",
+      "published": true,
+      "publishedAt": "2026-06-26"
+    },
+    {
+      "id": "photo-2025-2026-landscape",
+      "title": "风光摄影",
+      "category": "photography",
+      "categoryName": "摄影作品",
+      "year": "2025–2026",
+      "image": "assets/images/photography/landscape-2025-2026/landscape-2025-01.jpg",
+      "gallery": [
+        "assets/images/photography/landscape-2025-2026/landscape-2025-01.jpg",
+        "assets/images/photography/landscape-2025-2026/landscape-2025-02.jpg",
+        "assets/images/photography/landscape-2025-2026/landscape-2025-03.jpg",
+        "assets/images/photography/landscape-2025-2026/landscape-2025-04.jpg",
+        "assets/images/photography/landscape-2025-2026/landscape-2025-05.jpg",
+        "assets/images/photography/landscape-2025-2026/landscape-2025-06.jpg",
+        "assets/images/photography/landscape-2025-2026/landscape-2025-07.jpg",
+        "assets/images/photography/landscape-2025-2026/landscape-2026-01.jpg",
+        "assets/images/photography/landscape-2025-2026/landscape-2026-02.jpg"
+      ],
+      "description": "风光摄影作品整理，记录自然景观、城市空间与旅途中的光影变化。",
+      "published": true,
+      "publishedAt": "2026-06-26"
+    },
     {
       "id": "xhs-2026-certificates",
       "title": "大学生高频证书时间表",
