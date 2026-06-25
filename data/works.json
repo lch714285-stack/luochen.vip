@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-26T11:50:00+08:00",
+  "updatedAt": "2026-06-26T12:20:00+08:00",
   "works": [
     {
       "id": "xhs-2026-morning-brief-02",
@@ -18,9 +18,14 @@
       "title": "人物摄影",
       "category": "photography",
       "categoryName": "摄影作品",
-      "year": "2025",
-      "image": "assets/images/photography/portrait-2025/portrait-2025-01.jpg",
+      "year": "2025–2026",
+      "image": "assets/images/photography/portrait-2025/portrait-2026-01.jpg",
       "gallery": [
+        "assets/images/photography/portrait-2025/portrait-2026-01.jpg",
+        "assets/images/photography/portrait-2025/portrait-2026-02.jpg",
+        "assets/images/photography/portrait-2025/portrait-2026-03.jpg",
+        "assets/images/photography/portrait-2025/portrait-2026-04.jpg",
+        "assets/images/photography/portrait-2025/portrait-2026-05.jpg",
         "assets/images/photography/portrait-2025/portrait-2025-01.jpg",
         "assets/images/photography/portrait-2025/portrait-2025-02.jpg",
         "assets/images/photography/portrait-2025/portrait-2025-03.jpg",
@@ -30,7 +35,7 @@
         "assets/images/photography/portrait-2025/portrait-2025-07.jpg",
         "assets/images/photography/portrait-2025/portrait-2025-08.jpg"
       ],
-      "description": "人物摄影练习，关注自然光线、人物状态与环境氛围之间的关系。",
+      "description": "人物摄影作品整理，关注自然光线、人物状态与环境氛围之间的关系。",
       "published": true,
       "publishedAt": "2026-06-26"
     },
@@ -226,7 +231,7 @@
     },
     {
       "id": "photo-2026-sports-001",
-      "title": "着意体育：业余足球纪实",
+      "title": "纪实摄影",
       "category": "photography",
       "categoryName": "摄影作品",
       "year": "2026",
@@ -244,7 +249,7 @@
         "assets/images/photography/sports-2026/着意体育_摄影照片_26.05.30_10.jpg",
         "assets/images/photography/sports-2026/着意体育_摄影照片_26.05.30_11.jpg"
       ],
-      "description": "拍摄于上海业余足球赛场的一组现场纪实摄影，记录对抗、节奏与团队瞬间。",
+      "description": "以现场观察为核心的一组纪实摄影，记录赛场中的对抗、节奏与人物瞬间。",
       "published": true,
       "publishedAt": "2026-06-25"
     }
