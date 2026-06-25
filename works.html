@@ -3,31 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>作品集｜Luochen</title>
-  <link rel="stylesheet" href="style.css?v=20260625-3" />
-  <style>
-    .lightbox {
-      display: none !important;
-    }
-
-    body.lightbox-open {
-      overflow: auto !important;
-    }
-  </style>
+  <title>Works｜屈洛辰作品集</title>
+  <meta name="description" content="屈洛辰的作品总览，包含摄影、社媒内容、课程项目与信息设计实践。" />
+  <meta property="og:title" content="Works｜屈洛辰作品集" />
+  <meta property="og:description" content="摄影、社媒内容、课程项目与信息设计实践。" />
+  <meta property="og:image" content="https://luochen.vip/assets/images/photography/photo-2026-sports-001.jpg" />
+  <meta property="og:url" content="https://luochen.vip/works.html" />
+  <link rel="stylesheet" href="style.css?v=20260626-1" />
 </head>
 <body>
   <header class="site-header">
     <a href="index.html" class="logo">Luochen</a>
     <nav>
-      <a href="index.html">首页</a>
-      <a href="works.html">作品集</a>
+      <a href="works.html">Works</a>
+      <a href="about.html">About</a>
+      <a href="mailto:lch714285@gmail.com">Contact</a>
     </nav>
   </header>
 
   <main>
     <section class="page-title">
-      <h1>作品集</h1>
-      <p>课程汇报、小红书图文与摄影作品整理。</p>
+      <h1>Works</h1>
+      <p>摄影作品、社媒内容、课程项目与信息设计实践。</p>
       <p id="works-updated-at" class="works-updated-at" aria-live="polite"></p>
     </section>
 
@@ -37,18 +34,6 @@
     <p id="works-status" class="works-status" role="status"></p>
   </main>
 
-  <script>
-    (() => {
-      const clearLegacyLightbox = () => {
-        document.body.classList.remove("lightbox-open");
-        document.querySelectorAll(".lightbox").forEach((node) => node.remove());
-      };
-
-      window.addEventListener("pageshow", clearLegacyLightbox);
-      window.addEventListener("load", clearLegacyLightbox);
-      clearLegacyLightbox();
-    })();
-  </script>
-  <script src="works.js?v=20260625-3"></script>
+  <script src="works.js?v=20260626-1"></script>
 </body>
 </html>

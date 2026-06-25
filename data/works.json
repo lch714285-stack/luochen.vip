@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-25T08:35:00+08:00",
+  "updatedAt": "2026-06-26T09:00:00+08:00",
   "works": [
     {
       "id": "xhs-2026-certificates",
@@ -79,8 +79,8 @@
       "category": "xiaohongshu",
       "categoryName": "小红书图文",
       "year": "2026",
-      "image": "assets/images/xiaohongshu/posts-2026/xhs-post-43.png",
-      "gallery": ["assets/images/xiaohongshu/posts-2026/xhs-post-43.png", "assets/images/xiaohongshu/posts-2026/xhs-post-44.png", "assets/images/xiaohongshu/posts-2026/xhs-post-45.png", "assets/images/xiaohongshu/posts-2026/xhs-post-46.png", "assets/images/xiaohongshu/posts-2026/xhs-post-47.png", "assets/images/xiaohongshu/posts-2026/xhs-post-48.png", "assets/images/xiaohongshu/posts-2026/xhs-post-49.png"],
+      "image": "assets/images/xiaohongshu/posts-2026/xhs-post-44.png",
+      "gallery": ["assets/images/xiaohongshu/posts-2026/xhs-post-44.png", "assets/images/xiaohongshu/posts-2026/xhs-post-45.png", "assets/images/xiaohongshu/posts-2026/xhs-post-46.png", "assets/images/xiaohongshu/posts-2026/xhs-post-47.png", "assets/images/xiaohongshu/posts-2026/xhs-post-48.png", "assets/images/xiaohongshu/posts-2026/xhs-post-49.png"],
       "description": "围绕 AI、财经、国际与校园主题设计的“小猫早八报”晨间图文栏目。",
       "published": true,
       "publishedAt": "2026-06-25"
