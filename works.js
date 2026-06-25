@@ -86,11 +86,9 @@ function renderWorks() {
     }
     card.append(media);
 
-    const summary = document.createElement(isXiaohongshu ? "div" : "button");
-    if (!isXiaohongshu) {
-      summary.type = "button";
-      summary.setAttribute("aria-expanded", String(defaultOpen));
-    }
+    const summary = document.createElement("button");
+    summary.type = "button";
+    summary.setAttribute("aria-expanded", String(defaultOpen));
     summary.className = "work-summary";
 
     const info = createElement("div", "work-info");
@@ -99,16 +97,19 @@ function renderWorks() {
     info.append(
       createElement("span", "work-meta", `${work.categoryName} · ${work.year}`),
       createElement("h2", "", work.title),
-      isXiaohongshu ? createElement("span", "work-indicator-static", "图文已展开") : indicator
+      isXiaohongshu ? createElement("span", "work-indicator-static", defaultOpen ? "图文已展开" : "展开图文") : indicator
     );
     summary.append(info);
-    if (!isXiaohongshu) {
-      summary.addEventListener("click", () => {
-        const isOpen = card.classList.toggle("is-open");
-        summary.setAttribute("aria-expanded", String(isOpen));
+    summary.addEventListener("click", () => {
+      const isOpen = card.classList.toggle("is-open");
+      summary.setAttribute("aria-expanded", String(isOpen));
+      if (isXiaohongshu) {
+        const staticIndicator = info.querySelector(".work-indicator-static");
+        if (staticIndicator) staticIndicator.textContent = isOpen ? "图文已展开" : "展开图文";
+      } else {
         indicator.textContent = isOpen ? "收起作品" : "展开作品";
-      });
-    }
+      }
+    });
     card.append(summary);
 
     if (defaultOpen) {
