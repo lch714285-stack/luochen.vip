@@ -12,6 +12,11 @@ function createElement(tagName, className, text) {
   return element;
 }
 
+function getCollapsedLabel(work) {
+  const count = Array.isArray(work.gallery) ? work.gallery.length : 0;
+  return count > 1 ? `展开图集（${count} 张）` : "展开作品";
+}
+
 function renderUpdatedAt(value) {
   if (!value) return;
   const date = new Date(value);
@@ -86,6 +91,19 @@ function renderWorks() {
     }
     card.append(media);
 
+    let preview = null;
+    if (isXiaohongshu === false && Array.isArray(work.gallery) && work.gallery.length > 1) {
+      preview = createElement("div", "work-preview-strip");
+      work.gallery.slice(0, 4).forEach((source, previewIndex) => {
+        const image = document.createElement("img");
+        image.src = source;
+        image.alt = `${work.title} 预览 ${previewIndex + 1}`;
+        image.loading = "lazy";
+        preview.append(image);
+      });
+      card.append(preview);
+    }
+
     const summary = document.createElement("button");
     summary.type = "button";
     summary.setAttribute("aria-expanded", String(defaultOpen));
@@ -93,18 +111,24 @@ function renderWorks() {
 
     const info = createElement("div", "work-info");
     const indicator = createElement("span", "work-indicator");
-    indicator.textContent = defaultOpen ? "收起作品" : "展开作品";
+    indicator.textContent = defaultOpen ? "收起作品" : getCollapsedLabel(work);
     info.append(
       createElement("span", "work-meta", `${work.categoryName} · ${work.year}`),
       createElement("h2", "", work.title),
       indicator
     );
     summary.append(info);
-    summary.addEventListener("click", () => {
-      const isOpen = card.classList.toggle("is-open");
+
+    const setOpen = (isOpen) => {
+      card.classList.toggle("is-open", isOpen);
       summary.setAttribute("aria-expanded", String(isOpen));
-      indicator.textContent = isOpen ? "收起作品" : "展开作品";
-    });
+      indicator.textContent = isOpen ? "收起作品" : getCollapsedLabel(work);
+    };
+    const toggleOpen = () => setOpen(!card.classList.contains("is-open"));
+
+    media.addEventListener("click", toggleOpen);
+    if (preview) preview.addEventListener("click", toggleOpen);
+    summary.addEventListener("click", toggleOpen);
     card.append(summary);
 
     const body = createElement("div", "work-body");
