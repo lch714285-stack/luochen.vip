@@ -62,6 +62,7 @@ function renderWorks() {
   filteredWorks.forEach((work, index) => {
     const card = document.createElement("article");
     card.className = "work-card";
+    const defaultOpen = work.category === "xiaohongshu";
 
     const media = createElement("div", "work-media");
     if (work.image) {
@@ -84,11 +85,11 @@ function renderWorks() {
     const summary = document.createElement("button");
     summary.type = "button";
     summary.className = "work-summary";
-    summary.setAttribute("aria-expanded", "false");
+    summary.setAttribute("aria-expanded", String(defaultOpen));
 
     const info = createElement("div", "work-info");
     const indicator = createElement("span", "work-indicator");
-    indicator.textContent = "展开作品";
+    indicator.textContent = defaultOpen ? "收起作品" : "展开作品";
     info.append(
       createElement("span", "work-meta", `${work.categoryName} · ${work.year}`),
       createElement("h2", "", work.title),
@@ -101,6 +102,10 @@ function renderWorks() {
       indicator.textContent = isOpen ? "收起作品" : "展开作品";
     });
     card.append(summary);
+
+    if (defaultOpen) {
+      card.classList.add("is-open");
+    }
 
     const body = createElement("div", "work-body");
     body.append(createElement("p", "work-description", work.description));
