@@ -91,19 +91,6 @@ function renderWorks() {
     }
     card.append(media);
 
-    let preview = null;
-    if (isXiaohongshu === false && Array.isArray(work.gallery) && work.gallery.length > 1) {
-      preview = createElement("div", "work-preview-strip");
-      work.gallery.slice(0, 4).forEach((source, previewIndex) => {
-        const image = document.createElement("img");
-        image.src = source;
-        image.alt = `${work.title} 预览 ${previewIndex + 1}`;
-        image.loading = "lazy";
-        preview.append(image);
-      });
-      card.append(preview);
-    }
-
     const summary = document.createElement("button");
     summary.type = "button";
     summary.setAttribute("aria-expanded", String(defaultOpen));
@@ -127,7 +114,6 @@ function renderWorks() {
     const toggleOpen = () => setOpen(!card.classList.contains("is-open"));
 
     media.addEventListener("click", toggleOpen);
-    if (preview) preview.addEventListener("click", toggleOpen);
     summary.addEventListener("click", toggleOpen);
     card.append(summary);
 
