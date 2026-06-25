@@ -547,7 +547,7 @@ h1 {
   display: block;
 }
 
-.xiaohongshu-work .work-body {
+.xiaohongshu-work.is-open .work-body {
   display: block;
 }
 
