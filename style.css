@@ -393,10 +393,6 @@ h1 {
   cursor: pointer;
 }
 
-.xiaohongshu-work .work-summary {
-  cursor: default;
-}
-
 .work-media {
   width: 100%;
   height: 360px;
@@ -525,18 +521,6 @@ h1 {
   color: #fff;
 }
 
-.work-indicator-static {
-  display: inline-flex;
-  align-items: center;
-  width: fit-content;
-  padding: 7px 12px;
-  border-radius: 999px;
-  background: rgba(61, 44, 29, 0.08);
-  color: #5b4c40;
-  font-size: 13px;
-  font-weight: 600;
-}
-
 .work-body {
   display: none;
   border-top: 1px solid var(--line);
@@ -544,10 +528,6 @@ h1 {
 }
 
 .work-card.is-open .work-body {
-  display: block;
-}
-
-.xiaohongshu-work.is-open .work-body {
   display: block;
 }
 

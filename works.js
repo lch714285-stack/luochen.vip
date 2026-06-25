@@ -63,7 +63,7 @@ function renderWorks() {
     const card = document.createElement("article");
     card.className = "work-card";
     const isXiaohongshu = work.category === "xiaohongshu";
-    const defaultOpen = isXiaohongshu;
+    const defaultOpen = false;
     if (isXiaohongshu) {
       card.classList.add("xiaohongshu-work");
     }
@@ -97,24 +97,15 @@ function renderWorks() {
     info.append(
       createElement("span", "work-meta", `${work.categoryName} · ${work.year}`),
       createElement("h2", "", work.title),
-      isXiaohongshu ? createElement("span", "work-indicator-static", defaultOpen ? "图文已展开" : "展开图文") : indicator
+      indicator
     );
     summary.append(info);
     summary.addEventListener("click", () => {
       const isOpen = card.classList.toggle("is-open");
       summary.setAttribute("aria-expanded", String(isOpen));
-      if (isXiaohongshu) {
-        const staticIndicator = info.querySelector(".work-indicator-static");
-        if (staticIndicator) staticIndicator.textContent = isOpen ? "图文已展开" : "展开图文";
-      } else {
-        indicator.textContent = isOpen ? "收起作品" : "展开作品";
-      }
+      indicator.textContent = isOpen ? "收起作品" : "展开作品";
     });
     card.append(summary);
-
-    if (defaultOpen) {
-      card.classList.add("is-open");
-    }
 
     const body = createElement("div", "work-body");
     body.append(createElement("p", "work-description", work.description));
