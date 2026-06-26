@@ -3,21 +3,27 @@
 }
 
 :root {
-  --paper: #f6f6f1;
-  --surface: #ffffff;
-  --ink: #171717;
-  --muted: #5f625f;
-  --line: rgba(23, 23, 23, 0.12);
-  --accent: #233f38;
-  --card: rgba(255, 255, 255, 0.86);
-  --shadow: 0 16px 42px rgba(20, 24, 22, 0.07);
-  --shadow-strong: 0 22px 56px rgba(20, 24, 22, 0.11);
+  --paper: #eef4ff;
+  --paper-deep: #dbe8ff;
+  --surface: rgba(255, 255, 255, 0.88);
+  --surface-strong: #ffffff;
+  --ink: #11233f;
+  --muted: #5f7090;
+  --line: rgba(52, 86, 146, 0.14);
+  --accent: #2457a6;
+  --accent-soft: #e8f0ff;
+  --card: rgba(255, 255, 255, 0.76);
+  --shadow: 0 22px 52px rgba(36, 68, 120, 0.08);
+  --shadow-strong: 0 28px 76px rgba(31, 63, 116, 0.14);
 }
 
 body {
   margin: 0;
-  font-family: "Avenir Next", "PingFang SC", "Hiragino Sans GB", sans-serif;
-  background: linear-gradient(180deg, var(--paper) 0%, #f8f8f5 100%);
+  font-family: "Avenir Next", "PingFang SC", "Hiragino Sans GB", "Helvetica Neue", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(160, 197, 255, 0.38), transparent 28%),
+    radial-gradient(circle at top right, rgba(219, 233, 255, 0.9), transparent 32%),
+    linear-gradient(180deg, #f8fbff 0%, var(--paper) 38%, #f5f9ff 100%);
   color: var(--ink);
 }
 
@@ -26,10 +32,27 @@ a {
   text-decoration: none;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 119px,
+      rgba(78, 119, 193, 0.035) 119px,
+      rgba(78, 119, 193, 0.035) 120px
+    );
+  opacity: 0.65;
+}
+
 .site-header {
   max-width: 1080px;
   margin: 0 auto;
-  padding: 28px 24px;
+  padding: 28px 24px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -39,15 +62,32 @@ a {
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 0;
+  color: var(--ink);
+}
+
+nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
 }
 
 nav a {
-  margin-left: 24px;
+  margin-left: 0;
+  padding: 10px 16px;
   font-size: 14px;
   color: var(--muted);
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 nav a:hover {
+  background: rgba(36, 87, 166, 0.08);
   color: var(--ink);
 }
 
@@ -63,11 +103,18 @@ main {
   grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.6fr);
   gap: 36px;
   align-items: start;
+  padding: 36px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(233, 243, 255, 0.86));
+  box-shadow: var(--shadow-strong);
+  backdrop-filter: blur(18px);
 }
 
 .tag {
   margin: 0 0 18px;
-  font-size: 14px;
+  font-size: 13px;
   letter-spacing: 0;
   text-transform: uppercase;
   color: var(--accent);
@@ -78,6 +125,7 @@ h1 {
   font-size: 96px;
   line-height: 1;
   letter-spacing: 0;
+  color: #0f2041;
 }
 
 .intro {
@@ -167,11 +215,11 @@ h1 {
 
 .profile-photo-card {
   width: min(100%, 240px);
-  padding: 0;
-  border-radius: 8px;
-  background: var(--surface);
+  padding: 10px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(228, 239, 255, 0.88));
   border: 1px solid var(--line);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-strong);
   overflow: hidden;
 }
 
@@ -180,8 +228,8 @@ h1 {
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: 0;
-  filter: saturate(0.78);
+  border-radius: 14px;
+  filter: saturate(0.84) contrast(1.02);
 }
 
 .education-detail-card h2 {
@@ -223,18 +271,19 @@ h1 {
 .primary-btn {
   padding: 13px 22px;
   border-radius: 999px;
-  background: var(--ink);
+  background: linear-gradient(135deg, #14396e, #2f68c4);
   color: white;
   font-size: 15px;
+  box-shadow: 0 16px 30px rgba(36, 87, 166, 0.24);
 }
 
 .primary-btn:hover {
-  background: #3e332c;
+  background: linear-gradient(135deg, #102e59, #2758a5);
 }
 
 .text-btn {
   font-size: 15px;
-  color: var(--muted);
+  color: var(--accent);
 }
 
 .section {
@@ -267,11 +316,12 @@ h1 {
 .featured-work {
   display: block;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 22px;
   background: var(--surface);
   box-shadow: var(--shadow);
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  backdrop-filter: blur(18px);
 }
 
 .featured-work:hover {
@@ -284,7 +334,7 @@ h1 {
   width: 100%;
   height: 260px;
   object-fit: contain;
-  background: #ecece7;
+  background: linear-gradient(180deg, #edf4ff, #f8fbff);
 }
 
 .featured-work span,
@@ -314,8 +364,11 @@ h1 {
 }
 
 .capability-grid div {
-  padding: 20px;
-  border-top: 1px solid var(--line);
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: var(--shadow);
 }
 
 .capability-grid span {
@@ -380,6 +433,12 @@ h1 {
   grid-template-columns: minmax(220px, 0.38fr) minmax(0, 0.62fr);
   gap: 48px;
   align-items: start;
+  padding: 36px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
 }
 
 .about-portrait {
@@ -433,7 +492,7 @@ h1 {
 .page-title {
   margin: 20px 0 36px;
   padding: 0 0 28px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(36, 87, 166, 0.18);
 }
 
 .page-title h1 {
@@ -448,7 +507,7 @@ h1 {
 
 .works-updated-at {
   font-size: 14px;
-  color: #8a7c70;
+  color: var(--accent);
 }
 
 .filter-bar {
@@ -459,19 +518,20 @@ h1 {
 }
 
 .filter-btn {
-  border: 1px solid rgba(84, 63, 44, 0.14);
+  border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(255, 251, 245, 0.7);
-  padding: 9px 14px;
+  background: rgba(255, 255, 255, 0.74);
+  padding: 10px 16px;
   color: var(--muted);
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 8px 22px rgba(36, 87, 166, 0.06);
 }
 
 .filter-btn:hover,
 .filter-btn.active {
-  border-color: var(--ink);
-  background: var(--ink);
+  border-color: #1d4d98;
+  background: linear-gradient(135deg, #14396e, #2d63bb);
   color: #fff;
   transform: translateY(-1px);
 }
@@ -491,8 +551,8 @@ h1 {
 
 .work-card {
   overflow: hidden;
-  border: 1px solid rgba(84, 63, 44, 0.09);
-  border-radius: 8px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
   background: var(--card);
   box-shadow: var(--shadow);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -522,8 +582,8 @@ h1 {
   height: 360px;
   padding: var(--media-pad);
   background:
-    linear-gradient(180deg, rgba(244, 235, 219, 0.95), rgba(233, 223, 203, 0.7)),
-    #ede3cf;
+    linear-gradient(180deg, rgba(236, 244, 255, 0.95), rgba(217, 230, 252, 0.72)),
+    #edf5ff;
   display: grid;
   place-items: center;
   cursor: pointer;
@@ -586,7 +646,7 @@ h1 {
 }
 
 .work-action:hover {
-  background: rgba(56, 42, 28, 0.05);
+  background: rgba(36, 87, 166, 0.08);
 }
 
 .work-gallery {
@@ -658,14 +718,14 @@ h1 {
   width: fit-content;
   padding: 7px 12px;
   border-radius: 999px;
-  background: rgba(61, 44, 29, 0.08);
-  color: #5b4c40;
+  background: rgba(36, 87, 166, 0.1);
+  color: var(--accent);
   font-size: 13px;
   font-weight: 600;
 }
 
 .work-card.is-open .work-indicator {
-  background: rgba(31, 26, 23, 0.9);
+  background: linear-gradient(135deg, #14396e, #2d63bb);
   color: #fff;
 }
 
@@ -718,8 +778,14 @@ footer a {
     padding: 24px 20px;
   }
 
+  nav {
+    gap: 4px;
+    padding: 4px;
+  }
+
   nav a {
-    margin-left: 14px;
+    margin-left: 0;
+    padding: 9px 12px;
   }
 
   main {
@@ -738,6 +804,8 @@ footer a {
   .hero {
     grid-template-columns: 1fr;
     gap: 22px;
+    padding: 24px;
+    border-radius: 22px;
   }
 
   .hero-copy {
@@ -746,12 +814,12 @@ footer a {
 
   .profile-photo-card {
     width: min(100%, 240px);
-    padding: 0;
-    border-radius: 8px;
+    padding: 8px;
+    border-radius: 18px;
   }
 
   .profile-photo-card img {
-    border-radius: 0;
+    border-radius: 12px;
   }
 
   .hero-profile {
@@ -780,6 +848,7 @@ footer a {
   .capability-grid,
   .about-layout {
     grid-template-columns: 1fr;
+    padding: 24px;
   }
 
   .featured-work img {
@@ -804,7 +873,7 @@ footer a {
   }
 
   .work-card {
-    border-radius: 8px;
+    border-radius: 18px;
   }
 
   .work-media {
