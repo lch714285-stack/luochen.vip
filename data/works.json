@@ -1,6 +1,30 @@
 {
-  "updatedAt": "2026-06-29T10:00:00+08:00",
+  "updatedAt": "2026-06-29T10:20:00+08:00",
   "works": [
+    {
+      "id": "xhs-2026-weekly-brief-01",
+      "title": "小猫周报 第一期",
+      "category": "xiaohongshu",
+      "categoryName": "小红书图文",
+      "year": "2026",
+      "image": "assets/images/xiaohongshu/posts-2026/xhs-post-82.jpg",
+      "gallery": ["assets/images/xiaohongshu/posts-2026/xhs-post-82.jpg", "assets/images/xiaohongshu/posts-2026/xhs-post-83.jpg", "assets/images/xiaohongshu/posts-2026/xhs-post-84.jpg", "assets/images/xiaohongshu/posts-2026/xhs-post-85.jpg", "assets/images/xiaohongshu/posts-2026/xhs-post-86.jpg", "assets/images/xiaohongshu/posts-2026/xhs-post-87.jpg"],
+      "description": "小猫周报第一期，作为小红书运营栏目整理一周热点与内容表达。",
+      "published": true,
+      "publishedAt": "2026-06-28"
+    },
+    {
+      "id": "xhs-2026-finance-weekly-01",
+      "title": "小猫财经周报 第一期",
+      "category": "xiaohongshu",
+      "categoryName": "小红书图文",
+      "year": "2026",
+      "image": "assets/images/xiaohongshu/posts-2026/xhs-post-75.jpg",
+      "gallery": ["assets/images/xiaohongshu/posts-2026/xhs-post-75.jpg", "assets/images/xiaohongshu/posts-2026/xhs-post-76.jpg", "assets/images/xiaohongshu/posts-2026/xhs-post-77.jpg", "assets/images/xiaohongshu/posts-2026/xhs-post-78.jpg", "assets/images/xiaohongshu/posts-2026/xhs-post-79.jpg", "assets/images/xiaohongshu/posts-2026/xhs-post-80.jpg", "assets/images/xiaohongshu/posts-2026/xhs-post-81.jpg"],
+      "description": "小猫财经周报第一期，作为小红书运营栏目整理财经议题与图文表达。",
+      "published": true,
+      "publishedAt": "2026-06-28"
+    },
     {
       "id": "xhs-2026-morning-brief-05",
       "title": "小猫早八报 第五期",
