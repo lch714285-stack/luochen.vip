@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-06-28T14:15:00+08:00",
+  "updatedAt": "2026-06-29T10:00:00+08:00",
   "works": [
+    {
+      "id": "xhs-2026-morning-brief-05",
+      "title": "小猫早八报 第五期",
+      "category": "xiaohongshu",
+      "categoryName": "小红书图文",
+      "year": "2026",
+      "image": "assets/images/xiaohongshu/posts-2026/xhs-post-69.jpg",
+      "gallery": ["assets/images/xiaohongshu/posts-2026/xhs-post-69.jpg", "assets/images/xiaohongshu/posts-2026/xhs-post-70.jpg", "assets/images/xiaohongshu/posts-2026/xhs-post-71.jpg", "assets/images/xiaohongshu/posts-2026/xhs-post-72.jpg", "assets/images/xiaohongshu/posts-2026/xhs-post-73.jpg", "assets/images/xiaohongshu/posts-2026/xhs-post-74.jpg"],
+      "description": "小猫早八报第五期，延续晨间资讯栏目形式整理热点、校园与生活议题。",
+      "published": true,
+      "publishedAt": "2026-06-29"
+    },
     {
       "id": "xhs-2026-morning-brief-04",
       "title": "小猫早八报 第四期",
